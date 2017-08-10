@@ -1,0 +1,15 @@
+<table class="wp-list-table widefat fixed striped posts FeedTable"
+    width="80%" cellpadding="5" style="border :none;" >
+  <tr>
+    <td>Title</td>
+    <td>Source</td>
+    <td>Number of Page</td>
+    <td>Layout</td>
+    <td>Operation</td>
+  </tr>
+  <tr *ngFor = "let feed of feeds" [feed] = "feed"
+   [sourceOptions] ="sourceOptions"
+   (clearEmptyFeed)="clearEmptyFeed();"
+    (deleteFeed)="removeFeed($event)"></tr>
+
+</table>

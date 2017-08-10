@@ -1,0 +1,66 @@
+/*
+  the css fro admin part is basicly contains several modules or block
+  home page
+  Connected Device page
+*/
+
+
+/* home page start with the root element #misysnews_admin_home*/
+
+
+/*common class defination */
+
+#customized_home_page .meta-box-sortables .postbox .toggle-indicator:before {
+  content: "\f142";
+  display: inline-block;
+  font: 400 20px/1 dashicons;
+  speak: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-decoration: none!important
+}
+
+#customized_home_page .meta-box-sortables .postbox.closed .handlediv .toggle-indicator:before {
+  content: "\f140"
+}
+
+.postbox .hndle, .stuffbox .hndle {
+  border-bottom: 1px solid #eee;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.InputDeviceName {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  width: 100px;
+  height: inherit;
+  padding: 0px 0px;
+}
+
+.NoDeviceDiv {
+  background-color: #f9f9f9;
+  vertical-align: middle;
+  height: 80px;
+  text-align: center;
+  display: table;
+  width: 100%;
+  color: lightgray
+}
+
+.NoDeviceMessage {
+  display: table-cell;
+  height: 100%;
+  vertical-align: middle;
+  color: gray;
+  font-weight: normal;
+  font-size: 14px;
+  opacity: 0.5;
+}
+
+.wpBlue{
+  color:#0085ba;
+}

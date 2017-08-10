@@ -1,0 +1,12 @@
+{
+  "name": "misysnews",
+  "private": true,
+  "dependencies": {
+    "jquery": "~1.11.1",
+    "fullpage.js": "~2.2.1",
+    "angular": "~1.4",
+    "weather-icons": "1.2.1",
+    "angular-sanitize": "~1.4",
+    "angular-fullscreen": "~1.0.1"
+  }
+}

@@ -1,0 +1,66 @@
+<div id="bar" ng-controller="BarCtrl">
+  <div id="left">
+    <div id="slidebox">
+      <ul>
+        <li class="slideitem meteo" ng-if="news.barConfig.meteo">
+          <div class="meteoitem" ng-repeat="m in meteo">
+
+            <div class="date">{{m.date}}</div>
+            <div class="weather">
+              <i class="wi wi-{{m.weather}}" ></i>
+            </div>
+            <div class="temperature"><span class="morning"><strong>{{m.temperatures[0] | round}}°</strong></span>&nbsp;&nbsp;<span class="afternoon">{{m.temperatures[1] | round}}°</span></div>
+
+          </div>
+
+        </li>
+
+        <li class="slideitem horoscope" ng-if="news.barConfig.horoscope">
+          <div class="horoitem aries"><h5>BELIER</h5>{{horoscope['Bélier'] | stripHoro}}</div>
+          <div class="horoitem taurus"><h5>TAUREAU</h5>{{horoscope['Taureau'] | stripHoro}}</div>
+        </li>
+        <li class="slideitem horoscope" ng-if="news.barConfig.horoscope">
+          <div class="horoitem gemini"><h5>GEMEAUX</h5>{{horoscope['Gémeaux'] | stripHoro}}</div>
+          <div class="horoitem cancer"><h5>CANCER</h5>{{horoscope['Cancer'] | stripHoro}}</div>
+        </li>
+
+        <li class="slideitem anniversaries" ng-if="news.barConfig.anniversaries &amp;&amp; anniversaries.length > 0">
+          <h3>Bon anniversaire à</h3>
+          <div class="anniv-list">
+            <span class="anniv-item" ng-repeat="a in anniversaries">{{a}}{{$last ? '' : ', '}}</span>
+          </div>
+        </li>
+
+        <li class="slideitem horoscope" ng-if="news.barConfig.horoscope">
+          <div class="horoitem leo"><h5>LION</h5>{{horoscope['Lion'] | stripHoro}}</div>
+          <div class="horoitem virgo"><h5>VIERGE</h5>{{horoscope['Vierge'] | stripHoro}}</div>
+        </li>
+        <li class="slideitem horoscope" ng-if="news.barConfig.horoscope">
+          <div class="horoitem libra"><h5>BALANCE</h5>{{horoscope['Balance'] | stripHoro}}</div>
+          <div class="horoitem scorpio"><h5>SCORPION</h5>{{horoscope['Scorpion'] | stripHoro}}</div>
+        </li>
+
+        <li class="slideitem menus" ng-if="news.barConfig.menu &amp;&amp; menus.length > 0">
+          <h3>Ce midi, la cantine vous propose:</h3>
+          <div class="menus-list">
+            <span class="menus-item" ng-repeat="m in menus">{{m}}{{$last ? '' : ', '}}</span>
+          </div>
+        </li>
+
+        <li class="slideitem horoscope" ng-if="news.barConfig.horoscope">
+          <div class="horoitem sagittarius"><h5>SAGITTAIRE</h5>{{horoscope['Sagittaire'] | stripHoro}}</div>
+          <div class="horoitem capricorn"><h5>CAPRICORNE</h5>{{horoscope['Capricorne'] | stripHoro}}</div>
+        </li>
+        <li class="slideitem horoscope" ng-if="news.barConfig.horoscope">
+          <div class="horoitem aquarius"><h5>VERSEAU</h5>{{horoscope['Verseau'] | stripHoro}}</div>
+          <div class="horoitem pisces"><h5>POISSON</h5>{{horoscope['Poisson'] | stripHoro}}</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="right">
+    <div class="date">{{currentDate}}</div>
+    <div class="hour"  ng-click="retrieveOnlineRSSFeed()">{{currentTime}}</div>
+  </div>
+</div>

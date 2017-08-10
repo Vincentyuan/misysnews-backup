@@ -1,0 +1,110 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <title>Finastra News</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/fullpage.js/jquery.fullPage.css" />
+    <link rel="stylesheet" href="bower_components/weather-icons/css/weather-icons.css" />
+    <link rel="stylesheet" href="bower_components/weather-icons/css/weather-icons.min.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+      <link rel="stylesheet" href="styles/main.css">
+      <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/news.css">
+    <link rel="stylesheet" href="styles/bar.css">
+    <!-- endbuild -->
+  </head>
+  <body>
+    <div ng-app="misysnews" ng-controller="NewsCtrl">
+      <!--[if lt IE 10]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+      <![endif]-->
+
+      <div id="bg" ng-style="{'background-image': 'url(' + model[currentSlide.id][0].image + ')' }"></div>
+
+      <div id="header">
+          <div class="logo"></div>
+          <div class="cats"><br/>
+              <span class="category">{{categories[currentCategory].name}}</span><br/>
+              <span class="subcategory">{{currentSlide.id}}</span>
+          </div>
+      </div>
+
+      <div id="fullpage">
+
+        <div class="section" ng-repeat="category in categories">
+          <div class="slide" ng-repeat="feed in category.values">
+            <div class="content cat-{{category.name}} {{feed.id}}">
+                <div class="news hero" ng-if="model[feed.id][0]">
+                  <div class="pic" ng-style="{'background-image': 'url(' + model[feed.id][0].image + ')'}">
+                      <div class="time">{{model[feed.id][0].pubDate | date:'short'}} | {{feed.feedName}}</div>
+                  </div>
+                  <a href="{{model[feed.id][0].link}}"><h2>{{model[feed.id][0].title}}</h2></a>
+                  <p>{{model[feed.id][0].description}}</p>
+                </div>
+                <div class="news" ng-if="model[feed.id][1]">
+                  <div class="pic" ng-style="{'background-image': 'url(' + model[feed.id][1].image + ')'}">
+                      <div class="time">{{model[feed.id][1].pubDate | date:'short'}} | {{feed.feedName}}</div>
+                  </div>
+                  <a href="{{model[feed.id][1].link}}"><h2>{{model[feed.id][1].title}}</h2></a>
+                  <p>{{model[feed.id][1].description}}</p>
+                </div>
+                <div class="news" ng-if="model[feed.id][2]">
+                    <div class="pic" ng-style="{'background-image': 'url(' + model[feed.id][2].image + ')'}">
+                        <div class="time">{{model[feed.id][2].pubDate | date:'short'}} | {{feed.feedName}}</div>
+                    </div>
+                    <a href="{{model[feed.id][2].link}}"><h2>{{model[feed.id][2].title}}</h2></a>
+                    <p>{{model[feed.id][2].description}}</p>
+                </div>
+                <div class="news" ng-if="model[feed.id][3]">
+                    <div class="pic" ng-style="{'background-image': 'url(' + model[feed.id][3].image + ')'}">
+                        <div class="time">{{model[feed.id][3].pubDate | date:'short'}} | {{feed.feedName}}</div>
+                    </div>
+                    <a href="{{model[feed.id][3].link}}"><h2>{{model[feed.id][3].title}}</h2></a>
+                    <p>{{model[feed.id][3].description}}</p>
+                </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="bar" ng-controller="BarCtrl" ng-include src="'views/bar.html'">
+
+      </div>
+
+      <div id="video_overlay" ng-show="showVideoOverlay">
+          <video id="video" muted="muted" preload="auto">
+              <source src="media/tiny5.mp4" type="video/mp4">
+          </video>
+      </div>
+
+      <!-- build:js(.) scripts/vendor.js -->
+      <!-- bower:js -->
+      <script src="bower_components/jquery/dist/jquery.js"></script>
+      <script src="bower_components/jquery.slimscroll/jquery.slimscroll.min.js"></script>
+      <script src="bower_components/fullpage.js/jquery.fullPage.js"></script>
+      <script src="bower_components/angular/angular.js"></script>
+      <!-- endbower -->
+      <!-- endbuild -->
+
+      <script src="libs/jquery.scrollbox.js"></script>
+      <script src="libs/xml2json.min.js"></script>
+
+          <!-- build:js({app,.tmp}) scripts/main.js -->
+      <script src="scripts/main.js"></script>
+      <script src="scripts/news-controller.js"></script>
+      <script src="scripts/bar-controller.js"></script>
+      <script src="scripts/feed-service.js"></script>
+      <script src="scripts/filters.js"></script>
+          <!-- endbuild -->
+  </div>
+</body>
+</html>

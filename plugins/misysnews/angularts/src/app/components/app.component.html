@@ -1,0 +1,83 @@
+<div class="wrap" >
+<h1 >{{title}}</h1>
+<div class="appComponentCheckBoxDiv">
+  <p class="search-box" >
+    <input type="search" id="post-search-input" class="text"
+    [(ngModel)]="newCategory" (keyup.enter)="addTopicNoticeModal.show();checkNewTopics();"
+    placeholder="add a new topic"/>
+    <input type="submit" id="search-submit" class = "button"
+    (click) = "addTopicNoticeModal.show();checkNewTopics();" value="Add"/>
+  </p>
+</div>
+<div class="appComponentBarDiv">
+  <misysnews-bar *ngFor="let barKey of barArray" [barKey] = "barKey" [bars] = "rootObject.bar" (updateBar) = "updateBar($event)"></misysnews-bar>
+</div>
+<categories *ngFor="let category of rootObject.feeds" [category] = "category" (updateCategory) = "updateTopics($event)"
+  (moveDown)="moveDown($event)" (moveUp)="moveUp($event)" (removeCategory) = "initDeleteModal($event);deleteCategory.show();"></categories>
+
+<button class = "button button-primary button-large page-title-action" (click)="initPublishModal();publishModal.show()">Publish</button>
+</div>
+
+
+<!-- modal for publish event  -->
+<app-modal #publishModal>
+  <div class="app-modal-header">
+    Source Checking
+  </div>
+  <div class="app-modal-body">
+    <h4 *ngIf ="!checkFinished" >Checking progress .... please wait a moment </h4>
+    <h4 *ngIf="(!saveFinished)&&checkFinished&&checkValid" class="ModalGreen">Your new source is valid, uploading ....</h4>
+    <h4 *ngIf="saveFinished&&saveSuccessed" class="ModalGreen">Your new source is valid. It has been saved and published!</h4>
+    <h4 *ngIf="(!saveFinished)&&checkFinished&&!checkValid" class="ModalRed">Your new source contains errors. Please correct it and then try to publish it again.</h4>
+    <h4 *ngIf="warningNoFeedsMessage" class="ModalRed">Please at least add one feed !</h4>
+    <div class="progress">
+      <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" [loadingProgress]="getFeedsLoadedStatus()">
+        {{operatedFeeds}}/{{getNumberOfAllFeeds()}}
+      </div>
+    </div>
+
+    <h4 *ngIf="saveFinished&&!saveSuccessed" class="ModalRed">Network error. Please try again!</h4>
+    <h4 *ngIf="warningMessage" class="ModalRed">Please correct the wrong feed first!</h4>
+  </div>
+  <div class="app-modal-footer">
+     <button type="button" class="button button-large page-title-action" (click)="publishModal.hide()">Close</button>
+  </div>
+</app-modal >
+
+<!-- modal for delete topic  -->
+<app-modal #deleteCategory >
+  <div class="app-modal-header">
+    Delete Checking
+  </div>
+  <div class="app-modal-body">
+    Are you sure to delete topic: <span class="ModalButtonBlue" >"{{categoryNameTobeDeleted}}</span>"  ?
+  </div>
+  <div class="app-modal-footer">
+    <button type="button" class="button  button-primary button-large page-title-action" (click)="deleteTopicsWithChecking();deleteCategory.hide()">Yes</button>
+    <button type="button" class="button button-large page-title-action" (click)="deleteCategory.hide()">No</button>
+  </div>
+</app-modal>
+<!-- modal for add a new topic -->
+<app-modal #addTopicNoticeModal >
+  <div class="app-modal-header">
+    Notice
+  </div>
+  <div class="app-modal-body">
+    <span *ngIf="newCategoryValidStatus">
+    Have you created at least one source for the this topic?<br/>
+    <span class="ModalRed">*If not, please create a new source for this topic first!</span>
+  </span >
+  <span *ngIf="!newCategoryValidStatus" class="ModalRed">*The Category Name is empty or exist!</span>
+  </div>
+  <div class="app-modal-footer">
+    <button type="button" class="button  button-primary button-large page-title-action"
+      *ngIf="newCategoryValidStatus"
+     (click)="addNewTopic();addTopicNoticeModal.hide();">Anyway create the topic!</button>
+    <button type="button" class="button button-large page-title-action"
+      *ngIf="newCategoryValidStatus"
+     (click)="createNewWindowForSource();addTopicNoticeModal.hide()">No, go to create source first!</button>
+    <button type="button" class="button button-large page-title-action"
+    (click)="addTopicNoticeModal.hide()">Cancel</button>
+
+  </div>
+</app-modal>

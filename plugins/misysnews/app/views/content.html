@@ -1,0 +1,64 @@
+<div id="fullpage">
+
+  <div class="section" ng-repeat="category in news.categories">
+    <div class="slide" ng-repeat="feed in category.values" ng-switch on="feed.layout">
+
+      <!-- LAYOUT: 'no-hero-no-desc-3' -->
+
+      <div ng-switch-when="no-hero-no-desc-3" ng-init="offset = (feed.page?((feed.page-1)*3):0)"
+        class="content cat-{{category.name}} {{feed.id}} {{feed.layout}}">
+        <div  ng-repeat="slideItem in news.model[feed.id] | limitTo:3:offset"
+              class="news">
+          <div class="pic" ng-style="{'background-image': 'url(' + slideItem.image + ')'}">
+              <div class="time">{{slideItem.pubDate | date:'short'}} | {{feed.feedName}}</div>
+          </div>
+          <a href="{{slideItem.link}}"><h2 ng-bind-html="slideItem.title"></h2></a>
+        </div>
+      </div>
+
+      <!-- LAYOUT: 'no-hero' -->
+
+      <div ng-switch-when="no-hero" ng-init="offset = (feed.page?((feed.page-1)*4):0)"
+        class="content cat-{{category.name}} {{feed.id}} {{feed.layout}}">
+        <div  ng-repeat="slideItem in news.model[feed.id] | limitTo:4:offset"
+              class="news">
+          <div class="pic" ng-style="{'background-image': 'url(' + slideItem.image + ')'}">
+              <div class="time">{{slideItem.pubDate | date:'short'}} | {{feed.feedName}}</div>
+          </div>
+          <a href="{{slideItem.link}}"><h2 ng-bind-html="slideItem.title"></h2></a>
+          <p ng-bind-html="slideItem.description"></p>
+        </div>
+      </div>
+
+      <!-- LAYOUT: 'grid-with-no-images' -->
+
+      <div ng-switch-when="grid-with-no-images" ng-init="offset = (feed.page?((feed.page-1)*4):0)"
+              class="content cat-{{category.name}} {{feed.id}} {{feed.layout}}">
+        <div  ng-repeat="slideItem in news.model[feed.id] | limitTo:4:offset"
+              class="news">
+          <a href="{{slideItem.link}}"><h2 ng-bind-html="slideItem.title"></h2></a>
+          <div class="time">{{slideItem.pubDate | date:'short'}} | {{feed.feedName}}</div>
+          <p ng-bind-html="slideItem.description"></p>
+        </div>
+      </div>
+
+
+      <!-- LAYOUT: NORMAL or 'hero-first' -->
+
+      <div ng-switch-default ng-init="offset = (feed.page?((feed.page-1)*4):0)"
+        class="content cat-{{category.name}} {{feed.id}} {{feed.layout}}">
+        <div  ng-repeat="slideItem in news.model[feed.id] | excludeUncomplete | limitTo:4:offset"
+              class="news"
+              ng-class="{'hero' : $index == 0}">
+          <div class="pic" ng-style="{'background-image': 'url(' + slideItem.image + ')'}">
+              <div class="time">{{slideItem.pubDate | date:'short'}} | {{feed.feedName}}</div>
+          </div>
+          <a href="{{slideItem.link}}"><h2 ng-bind-html="slideItem.title"></h2></a>
+          <p ng-init="maxChar = ($index == 0 ? 200 : 300)" ng-bind-html="slideItem.description | strip:maxChar"></p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

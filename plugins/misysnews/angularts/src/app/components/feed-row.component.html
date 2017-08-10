@@ -1,0 +1,73 @@
+<td >
+  <span *ngIf="!feed.editable&&!feedexpire" class="FeedRowTitle"  [FeedValidStatus] = "feed.validStatus"> {{feed.title}} </span>
+
+  <span *ngIf="!feed.editable&&feedexpire" class="cursorHand"  placement="right" ngbTooltip ="Expired! Not displayed in Misysnews"  style="color:orange"> {{feed.id}} </span>
+
+  <input *ngIf="feed.editable" type="string" [(ngModel)]="feed.title"
+      class="text form-control FeedRowTitleInput"
+      style=''
+      size="auto"
+   placeholder="add title"/>
+</td>
+
+<td>
+  <span *ngIf="!feed.editable&&feed.title!=''" >{{feed.feedName}}</span>
+  <ng-select
+          *ngIf="feed.editable||feed.title==''"
+          [items]="latestSourceOptions"
+          [disabled]="disabled"
+          (selected)="selectSource($event)"
+          (removed) = "onRemoveSelectSource()"
+          placeholder="{{this.feed.feedName}}">
+  </ng-select>
+</td>
+
+<td>
+  <span *ngIf="!feed.editable&&feed.title!=''">{{feed.page}}</span>
+  <input  *ngIf="feed.editable||feed.title==''" type="number"
+      class="text form-control FeedRowPageInput"     style='height: 110%;'
+      size="auto" [(ngModel)]="newPage" placeholder="(1,2...)" />
+</td>
+<td>
+  <span *ngIf="!feed.editable&&feed.title!=''"> {{selectedLayout.name}}</span>
+  <ng-select
+          *ngIf="feed.editable||feed.title==''"
+          [items]="newLayoutItems"
+          [disabled]="disabled"
+          (selected)="selectLayout($event)"
+          (removed) = "onRemoveSelectLayout()"
+          placeholder="{{selectedLayout.name}}">
+  </ng-select>
+</td>
+
+<td style="border-bottom:1px">
+  <span *ngIf="!feed.editable" (click)= "startEdit()"
+   class="edit cursorHand" ><a>Edit</a> <span style="color:#ddd">|</span></span>
+  <span *ngIf="!feed.editable" (click)="onRemoveSourceFromTopic();"
+    class="trash cursorHand" ><a class="submitdelete">Trash</a></span>
+  <span *ngIf="feed.editable" (click)= "endEdit();"  class="edit cursorHand"
+    ><a>Cancel</a> <span style="color:#ddd">|</span></span>
+  <span *ngIf="feed.editable" (click)="updateCurrentFeeds(newPage,newLayout)"
+    class="edit cursorHand" ><a>Save</a></span>
+
+  <div *ngIf="showTrashSourceMessage" class="customizeModal" [ngClass]="{'in': visibleAnimate}"
+       [ngStyle]="{'display': showTrashSourceMessage ? 'block' : 'none', 'opacity': visibleAnimate ? 1 : 0}" >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          Notice
+        </div>
+        <div class="modal-body">
+          Are you sure to delete the source <span class="wpBlue">"{{feed.title}}"</span>?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="button  button-primary button-large page-title-action"
+            (click)="removeFeedFromCategory();closeTrashSourceModal()">Yes</button>
+          <button type="button" class="button button-large page-title-action"
+            (click)="closeTrashSourceModal()">No</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</td>

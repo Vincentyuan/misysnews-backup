@@ -1,0 +1,130 @@
+/*
+  This css contains the class for angular module part
+*/
+
+
+/* start from app.component */
+
+.appComponentCheckBoxDiv {
+  margin-right: 20px;
+  margin-bottom: 35px
+}
+
+.appComponentBarDiv {
+  margin-bottom: 20px
+}
+
+.ModalGreen {
+  color: green;
+}
+
+.ModalRed {
+  color: red;
+}
+
+.ModalButtonBlue {
+  color: #0085ba;
+}
+
+
+/*category */
+
+.CategoryBottom {
+  margin-bottom: 0px;
+  border: none
+}
+
+.AddNewFeed {
+  display: block;
+  font-size: 12px;
+  padding: 8px 10px 8px 10px;
+  text-align: center;
+  border-width: 1px 0px 0px 0px;
+  border-style: solid;
+  border-color: #e1d8d8;
+}
+
+.CategoryBottomLine {
+  height: 35px;
+  border: none;
+}
+
+.CategoryBottomButton {
+  padding-left: 5px;
+  padding-right: 5px
+}
+
+.CategoryBottomUp {
+  margin-top: 8px;
+  line-height: 1.1em
+}
+
+.CategoryBottomDown {
+  margin-top: -30px;
+  vertical-align: 11%;
+}
+
+.CategoryBottomCheckBoxDiv {
+  float: right;
+  line-height: 25px;
+  margin-right: 20px
+}
+
+.CategoryBottomCheckBoxInput {
+  margin-left: 2px;
+  margin-top: 0px;
+}
+
+.CategoryBottomCheckBoxLable {
+  margin-left: 2px;
+}
+
+
+/*css for feed table */
+
+.FeedTable {
+  text-align: left;
+  border-collapse: collapse;
+  /*border: none;*/
+}
+
+
+/*css for feed row*/
+
+.FeedRowTitle {
+  font-weight: 600;
+}
+
+.FeedRowTitleInput {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 110%
+}
+
+.FeedRowPageInput {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  width: 100px;
+  height: 110%;
+}
+
+.barTopBlock {
+  display: inline-block;
+  text-align: center;
+  opacity: 0.7;
+  margin-right: 20px;
+}
+
+.barNameLabel {
+  margin-left: 2px;
+  vertical-align: middle;
+}
+
+.barInput {
+  margin-left: 2px;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  vertical-align: middle;
+}

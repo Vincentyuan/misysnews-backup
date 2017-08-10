@@ -1,0 +1,59 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "project": {
+    "name": "angularts_misysnews_admin"
+  },
+  "apps": [
+    {
+      "root": "plugins/misysnews/angularts/src/",
+      "outDir": "plugins/misysnews/angularts/dist",
+      "assets": [
+        "assets",
+        "favicon.ico"
+      ],
+      "index": "index.html",
+      "main": "main.ts",
+      "polyfills": "polyfills.ts",
+      "test": "test.ts",
+      "tsconfig": "tsconfig.app.json",
+      "testTsconfig": "tsconfig.spec.json",
+      "prefix": "app",
+      "styles": [
+        "assets/css/ng2-select.css"
+      ],
+      "scripts": [
+        "../../../../node_modules/jquery/dist/jquery.min.js"
+      ],
+      "environmentSource": "environments/environment.ts",
+      "environments": {
+        "dev": "environments/environment.ts",
+        "prod": "environments/environment.prod.ts"
+      }
+    }
+  ],
+  "e2e": {
+    "protractor": {
+      "config": "./protractor.conf.js"
+    }
+  },
+  "lint": [
+    {
+      "project": "plugins/misysnews/angularts/src/tsconfig.app.json"
+    },
+    {
+      "project": "plugins/misysnews/angularts/src/tsconfig.spec.json"
+    },
+    {
+      "project": "plugins/misysnews/angularts/e2e/tsconfig.e2e.json"
+    }
+  ],
+  "test": {
+    "karma": {
+      "config": "./karma.conf.js"
+    }
+  },
+  "defaults": {
+    "styleExt": "css",
+    "component": {}
+  }
+}

@@ -1,0 +1,59 @@
+<!-- dev structure is from the wordpress structure  -->
+<div class="wrap" id="customized_home_page">
+  <form id="post">
+    <div id="poststuff">
+      <div id="post-body" class="metabox-holder">
+        <div id="postbox-container-1" class="postbox-container ">
+          <!-- publish block  -->
+          <div id="side-sortables" class="postbox meta-box-sortables ui-sortable" style="border-color:#e1d8d8">
+            <div id="submitdiv" class="postbox custom-box-class CategoryBottom" >
+              <button [displayBackend]="category.displayBackend" (click)="changeVisibleBackend()" type="button" class="handlediv custom-collepse-class" aria-expanded="true">
+                  <span class="screen-reader-text"> Toggle panel :Publish </span>
+                  <span class="toggle-indicator" aria-hidden="true"></span>
+                </button>
+              <h2 [displayBackend]="category.displayBackend" (click)="changeVisibleBackend()" class="hndle ui-sortable-handle  custom-collepse-class">
+                 <span [displayTitleNormal] ="category.displayFrontend"> {{category.name}}<span *ngIf="!category.displayFrontend">(Invisible in Finastra News)</span></span>
+              </h2>
+              <div class="inside">
+                <div class="submitbox" id="submitpost">
+                  <div id="minor-publishing">
+                    <!-- containt should be here  -->
+                    <div id="misc-publishing-actions" style="padding:0px">
+
+                      <misysnews-feeds-table  [feeds]="category.values" [sourceOptions]="sourceOptions" ></misysnews-feeds-table>
+                      <span  class="AddNewFeed">
+                          <a  (click)="addSourceToCategory();" class="cursorHand"> + add a new source</a>
+                      </span>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div class="CategoryBottomLine" style="  padding-bottom: 0px; padding-top: 6px" id="major-publishing-actions">
+              <button class="button page-title-action CategoryBottomButton" (click)="triggerMoveUp()">
+                <i class="fa fa-sort-asc fa-lg CategoryBottomUp" aria-hidden="true" ></i>
+              </button>
+              <button class="button page-title-action CategoryBottomButton" (click)="triggerMoveDown()" >
+                <i class="fa fa-sort-desc fa-lg CategoryBottomDown" aria-hidden="true" ></i>
+              </button>
+              <button class="button page-title-action CategoryBottomDown" (click)="triggerRemoveCategory()" >
+                <i class="fa fa-trash fa" aria-hidden="true"></i>
+              </button>
+
+              <span class="CategoryBottomCheckBoxDiv">
+                  <input style="margin-left: 2px;margin-top: 0px;" type="checkbox" [checked]="category.displayFrontend" (change) = "changeVisibleFrontend()"/>
+                  <span (click)="changeVisibleFrontend()" >
+                    <label class="CategoryBottomCheckBoxLable" >Display this topic in Finastra News</label>
+                  </span>
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

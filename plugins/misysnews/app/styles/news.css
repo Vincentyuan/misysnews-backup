@@ -1,0 +1,101 @@
+.fp-controlArrow {
+    display: none;
+}
+
+.news {
+    position: relative;
+    float: left;
+    width: 295px;
+    margin: 10px;
+    z-index: 999;
+    color: #FFF;
+    /* purple */
+    background-color:#6948d9 ;
+    font-family: Arial;
+    height: 100%;
+    overflow: hidden;
+    line-height: normal;
+}
+
+.news .pic{
+    position: relative;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-color: #DBE1D9;
+    /*background-position-y : 0;
+    background-position-x: 50%;*/
+}
+
+.news .time {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 2px 4px;
+    font-size: 10px;
+    color: white;
+    background-color: black;
+    opacity: .8;
+}
+
+/*.news .pic .time {
+    top: initial;
+    bottom: 0;
+}*/
+
+.news h2{
+    font-size: 24px;
+    margin: 20px 20px;
+    line-height: normal;
+}
+.news p{
+    font-size: 20px;
+    margin: 20px 20px;
+    line-height: normal;
+}
+
+.news a, .news a:visited {
+    color: inherit;
+    text-decoration: inherit;
+}
+.news a:hover {
+     color: #ddd;
+ }
+.news:first-child {
+    /* pink*/
+    background-color: #b140ab;
+}
+.news:nth-child(3) {
+  /* gray*/
+    background-color: #414141;
+}
+.news.hero {
+    width: 664px;
+}
+.news.hero .pic {
+    height: 70%;
+}
+.news.hero h2 {
+    font-size: 30px;
+    margin: 10px 30px;
+}
+.news.hero p {
+    margin: 10px 30px;
+    font-size: 22px;
+}
+
+.content.new-joiners .news .pic {
+    background-size: contain;
+}
+
+.grid-with-no-images .news {
+
+}
+
+.no-hero-no-desc-3 .news {
+    width: 555px;
+}
+.no-hero-no-desc-3 .news .pic {
+    height: 555px;
+}

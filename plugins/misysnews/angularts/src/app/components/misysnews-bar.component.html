@@ -1,0 +1,11 @@
+<span class="barTopBlock" (click)="triggerBarStatusChange()"
+ngbTooltip ="{{currentBar.visibility?'Deactive the bar':'Active the bar'}}"  >
+  <div [activeStatus]="bars[barKey]">
+    <span> <i class = "fa fa-2x" ngClass="{{barConfigObj.barClass}}" aria-hidden="true"></i> </span>
+  </div>
+  <span>
+    <label class = "barNameLabel">{{barConfigObj.barNameEn}}</label>
+    <input type="checkbox" [checked]="bars[barKey]"
+      style="margin-left: 2px;margin-top: 5px;margin-bottom: 0px;vertical-align: middle;" />
+  </span>
+</span>

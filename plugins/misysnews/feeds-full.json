@@ -1,0 +1,48 @@
+{
+  "bar" : {
+    "meteo" : true,
+    "horoscope" : true,
+    "menu" : true,
+    "anniversaries" : true
+  },
+  "feeds" : [
+    {"name":"news",
+      "values": [
+        { "id" : "a la une", "feedURL" : "http://rss.lemonde.fr/c/205/f/3050/index.rss", "feedName" : "Le Monde" },
+        { "id" : "monde", "feedURL" : "http://rss.feedsportal.com/c/205/f/3052/index.rss", "feedName" : "Le Monde" },
+        { "id" : "politique", "feedURL" : "http://rss.feedsportal.com/c/205/f/3067/index.rss", "feedName" : "Le Monde" },
+        { "id" : "high-tech", "feedURL" : "http://rss.feedsportal.com/c/205/f/3055/index.rss", "feedName" : "Le Monde" },
+        { "id" : "sports", "feedURL" : "http://rss.feedsportal.com/c/205/f/3058/index.rss", "feedName" : "Le Monde" },
+        { "id" : "media", "feedURL" : "http://rss.feedsportal.com/c/205/f/3056/index.rss", "feedName" : "Le Monde" },
+        { "id" : "culture", "feedURL" : "http://rss.feedsportal.com/c/205/f/3060/index.rss", "feedName" : "Le Monde" }
+      ]},
+    {"name":"corporate",
+       "values":[
+          { 
+            "id" : "inside-misys 1",
+            "feedURL":"http://home.insidemisys.com/_layouts/feed.aspx?xsl=1%26web=%2FNews%2Fnewsfeed%26page=a95fd203-81e5-4c1c-8c4f-4e16b3a9e636%26wp=040e3fde-267f-40af-a57f-6156ab6a5198",
+            "feedName": "Inside Misys 1",
+            "layout":"grid-with-no-images",
+            "page":1,
+            "background":"http://misysnews/wp-content/plugins/misysnews/app/media/corpo_bg_01.jpg"
+          },
+          { 
+            "id" : "inside-misys 2",
+            "feedURL":"http://home.insidemisys.com/_layouts/feed.aspx?xsl=1%26web=%2FNews%2Fnewsfeed%26page=a95fd203-81e5-4c1c-8c4f-4e16b3a9e636%26wp=040e3fde-267f-40af-a57f-6156ab6a5198",
+            "feedName": "Inside Misys 2",
+            "layout":"grid-with-no-images",
+            "page":2,
+            "background":"http://misysnews/wp-content/plugins/misysnews/app/media/corpo_bg_01.jpg"
+          },
+          {
+            "id" : "new-joiners",
+            "feedURL":"http://10.21.182.157/category/corpo/newjoiners/feed/rss2/",
+            "feedName": "Comm interne",
+            "layout":"no-hero",
+            "background":"http://misysnews/wp-content/plugins/misysnews/app/media/mi_tweet_bg_01.png"
+          }
+      ]}
+  ]
+}
+
+

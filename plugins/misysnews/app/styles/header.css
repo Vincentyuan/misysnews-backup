@@ -1,0 +1,37 @@
+#header .logo {
+    display: inline-block;
+    width: 170px;
+    background: url('../media/misys_logo.png') no-repeat 0 50%;
+    height: 100px;
+    margin-right: 20px;
+    border-right: 1px solid rgba(255,255,255,0.2);
+}
+
+#header .cats {
+    display: inline-block;
+    vertical-align: top;
+    line-height: normal;
+}
+
+#header .cats .category {
+    font-family: Dot;
+    font-size: 46px;
+    color: rgba(255,255,255,1);
+}
+
+#header .cats .subcategory {
+    font-family: Dot;
+    font-size: 30px;
+    color: rgba(255,255,255, 0.6);
+}
+
+#header .top-info {
+  color: rgba(255,255,255, 0.6);
+  font-size: 15px;
+  display: inline-block;
+  height: 100px;
+  margin: 0 20px;
+  padding: 30px 20px;
+  /*border-left: 1px solid rgba(255,255,255,0.2);*/
+  vertical-align: top;
+}

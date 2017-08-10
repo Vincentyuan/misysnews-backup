@@ -1,0 +1,146 @@
+#bar {
+    padding-top: 50px;
+    padding-bottom: 70px;
+    z-index: 2000;
+}
+
+#bar #left {
+    position: absolute;
+    right: 250px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+}
+
+#bar #right {
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-right: 4px solid #b140ab;
+    padding-right: 20px;
+    text-align: right;
+}
+
+#bar #right .date {
+    font-size: 30px;
+    color: #eaeaea;
+}
+
+#bar #right .hour {
+    font-family: Dot;
+    font-size: 70px;
+    color: #ffffff;
+}
+
+#bar #slidebox {
+    height: 150px;
+    overflow: hidden;
+    color: #dedede;
+}
+
+#bar #slidebox ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+#bar #slidebox ul li {
+    height: 150px;
+    overflow: hidden;
+}
+
+#bar .meteoitem {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 5px;
+    padding-bottom: 20px;
+    width: 10%;
+    text-align: center;
+    border-radius: 10px;
+    opacity: 0.5;
+}
+
+#bar .meteoitem:first-child {
+    margin-left: 20px;
+    opacity: 1;
+}
+
+#bar .meteoitem:first-child{
+    color: white;
+}
+
+#bar .meteoitem .date {
+    font-size:15px;
+}
+#bar .meteoitem .weather {
+    font-size:45px;
+    line-height: 60px;
+}
+#bar .meteoitem .temperature {
+    font-size:15px;
+}
+
+#bar .horoitem {
+    display: inline-block;
+    vertical-align: top;
+    width: 48%;
+    min-height: 120px;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 120px;
+    padding-right: 40px;
+    font-family: Arial;
+    line-height: 24px;
+    font-size: 20px;
+    background-position-y: 0;
+    background-position-x: 0;
+    background-size: 96px 96px;
+    background-repeat: no-repeat;
+}
+
+#bar .horoitem:first-child {
+    border-right: 1px solid rgba(255,255,255, 0.2);
+}
+
+#bar .horoitem h5 {
+    font-family: Arial;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: #b140ab;
+}
+
+#bar .horoitem.aries { background-image: url('../media/horoscope/aries.png'); }
+#bar .horoitem.taurus { background-image: url('../media/horoscope/taurus.png'); }
+#bar .horoitem.gemini { background-image: url('../media/horoscope/gemini.png'); }
+#bar .horoitem.cancer {background-image: url('../media/horoscope/cancer.png'); }
+#bar .horoitem.leo {background-image: url('../media/horoscope/leo.png'); }
+#bar .horoitem.virgo {background-image: url('../media/horoscope/virgo.png'); }
+#bar .horoitem.libra {background-image: url('../media/horoscope/libra.png'); }
+#bar .horoitem.scorpio {background-image: url('../media/horoscope/scorpio.png'); }
+#bar .horoitem.sagittarius {background-image: url('../media/horoscope/sagittarius.png'); }
+#bar .horoitem.capricorn {background-image: url('../media/horoscope/capricorn.png'); }
+#bar .horoitem.aquarius {background-image: url('../media/horoscope/aquarius.png'); }
+#bar .horoitem.pisces {background-image: url('../media/horoscope/pisces.png'); }
+
+#bar .anniversaries h3 {
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: bold;
+    color: #b140ab;
+}
+#bar .anniversaries .anniv-list .anniv-item{
+    font-size: 20px;
+    color: white;
+}
+#bar .menus h3 {
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: bold;
+    color: #b140ab;
+}
+#bar .menus .menus-list .menus-item{
+    font-size: 20px;
+    color: white;
+}
